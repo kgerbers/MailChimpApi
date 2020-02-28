@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Helpers\MailChimpApi\Models;
+namespace Kgerbers\MailChimpApi\Models;
 
-use App\Http\Helpers\MailChimpApi\ApiClient;
-use App\Http\Helpers\MailChimpApi\Exception\MailchimpRoutingException;
+use Kgerbers\MailChimpApi\ApiClient;
+use Kgerbers\MailChimpApi\Exception\MailchimpRoutingException;
 use ReflectionObject;
 use ReflectionProperty;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Helpers\MailChimpApi\Exception;
+namespace Kgerbers\MailChimpApi\Exception;
 
 class MailchimpException extends \Exception
 {

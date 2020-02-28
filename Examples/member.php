@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Helpers\MailChimpApi\Models\Lists;
-use App\Http\Helpers\MailChimpApi\Models\Member;
+use Kgerbers\MailChimpApi\Models\Lists;
+use Kgerbers\MailChimpApi\Models\Member;
 
 // First define the list to which the users belong
 $lists = new Lists('efbadeb5d2');

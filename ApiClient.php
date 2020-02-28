@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Helpers\MailChimpApi;
+namespace Kgerbers\MailChimpApi;
 
-use App\Http\Helpers\MailChimpApi\Exception\MailchimpBadRequestException;
+use Kgerbers\MailChimpApi\Exception\MailchimpBadRequestException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
-use Log;
+use Psr\Log\LoggerAwareTrait;
 
 class ApiClient
 {
@@ -14,6 +14,8 @@ class ApiClient
     protected $response;
     protected $errors = [];
     protected static $apiCount = 0;
+
+    use LoggerAwareTrait;
 
     public function __construct ($uri, $params, $method)
     {
@@ -23,7 +25,7 @@ class ApiClient
 
         $params = ['json' => $params];
 
-        Log::channel('api')->info('[' . ++self::$apiCount . '/100] Calling ' . $method . ':' . $uri . ' with params: ' . json_encode($params));
+        $this->logger->info('[' . ++self::$apiCount . '/100] Calling ' . $method . ':' . $uri . ' with params: ' . json_encode($params));
 
         $params = array_merge($params, ['auth' => ['portal', $api_key]]);
 
@@ -32,7 +34,7 @@ class ApiClient
         }
         catch (ClientException $ce) {
             if ($ce->getCode() === 400) {
-                Log::channel('api')->error('[' . $ce->getCode() . '] response: ' . (string) $ce->getMessage());
+                $this->logger->error('[' . $ce->getCode() . '] response: ' . (string) $ce->getMessage());
                 // There is a mistake in the code, so returning it:
                 throw new MailchimpBadRequestException($ce->getMessage(), $ce->getCode());
             }
@@ -44,7 +46,7 @@ class ApiClient
                 'apiCount' => self::$apiCount,
             ];
 
-            Log::channel('api')->debug('[' . $ce->getCode() . '] response: ' . (string) $ce->getResponse()->getBody());
+            $this->logger->debug('[' . $ce->getCode() . '] response: ' . (string) $ce->getResponse()->getBody());
 
             return NULL;
         }

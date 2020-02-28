@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Helpers\MailChimpApi;
+namespace Kgerbers\MailChimpApi;
 
-use App\Http\Helpers\MailChimpApi\Exception\MailchimpRoutingException;
+use Kgerbers\MailChimpApi\Exception\MailchimpRoutingException;
 
 class ApiRouter
 {

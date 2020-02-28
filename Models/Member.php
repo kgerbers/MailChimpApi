@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Helpers\MailChimpApi\Models;
+namespace Kgerbers\MailChimpApi\Models;
 
-use App\Http\Helpers\MailChimpApi\ApiClient;
-use App\Http\Helpers\MailChimpApi\ApiRouter;
+use Kgerbers\MailChimpApi\ApiClient;
+use Kgerbers\MailChimpApi\ApiRouter;
 
 class Member extends BaseModel
 {

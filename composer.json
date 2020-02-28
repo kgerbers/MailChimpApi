@@ -1,0 +1,15 @@
+{
+    "name": "kgerbers/mail-chimp-api",
+    "description": "Library wrapper around Mail Chimp api",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kees Gerbers",
+            "email": "kees@bertelsholland.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "psr/log": "^1.1"
+    }
+}
