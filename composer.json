@@ -1,15 +1,26 @@
 {
-    "name": "kgerbers/mail-chimp-api",
+    "name": "kgerbers/mailchimp-api",
     "description": "Library wrapper around Mail Chimp api",
     "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/kgerbers/MailChimpApi",
     "authors": [
         {
             "name": "Kees Gerbers",
-            "email": "kees@bertelsholland.com"
+            "email": "kees@bertelsholland.com",
+            "homepage": "https://keesgerbers.nl",
+            "role": "Developer"
         }
     ],
     "require": {
         "guzzlehttp/guzzle": "^6.5",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "php": ">=7.1.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kgerbers\\MailChimpApi": "./"
+        }
     }
 }
