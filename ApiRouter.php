@@ -6,15 +6,9 @@ use App\Http\Helpers\MailChimpApi\Exception\MailchimpRoutingException;
 
 class ApiRouter
 {
-    protected $uris = [
-        'lists' => 'lists/{list_id}/members',
-        'lists-member' => 'lists/{list_id}/members/{subscriber_hash}',
-        'lists-member-tags' => 'lists/{list_id}/members/{subscriber_hash}/tags',
-    ];
-
     public function prepareURI ($uri_identifier, $options = [])
     {
-        $uri = $this->uris[$uri_identifier] ?? NULL;
+        $uri = $uri_identifier;
 
         $possibleParams = [
             'list_id',
